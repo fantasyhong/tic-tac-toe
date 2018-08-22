@@ -40,20 +40,26 @@ function isTie(squares){
   return true;
 }
 
+
+
 class Board extends React.Component {
+  defaultstate={
+    squares:Array(9).fill(null),
+    xIsNext:true,
+  }
+
   constructor(props){
     super(props);
-    this.state={
-      squares:Array(9).fill(null),
-      xIsNext:true,
-    };
+    this.state=this.defaultstate;
   }
   renderSquare(i) {
     return <Square value={
       this.state.squares[i]}
       onClick={()=>this.handleClick(i)} />;
   }
-
+  resetGame(){
+    this.setState({...this.defaultstate});
+  }
   handleClick(i){
     const squares=this.state.squares.slice();
     if(squares[i]||calculateWinner(this.state.squares)){
@@ -97,6 +103,7 @@ class Board extends React.Component {
           {this.renderSquare(7)}
           {this.renderSquare(8)}
         </div>
+        <button onClick={()=>this.resetGame()}>Reset Game</button>
       </div>
     );
   }
