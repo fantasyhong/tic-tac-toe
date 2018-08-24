@@ -6,6 +6,7 @@ This repo contains source code for the tic-tac-toe game based on the ReactJS tut
 
 8/23/2018:
 <ul><li>Time machine feature is made to be read-only, players can't make changes in the past</li>
+	<li>Modulize code</li>
 </ul>
 <br />
 
