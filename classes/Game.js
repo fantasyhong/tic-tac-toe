@@ -53,10 +53,12 @@ class Game extends React.Component {
     const history = this.state.history;
     const current = history[history.length - 1];
     const squares = current.squares.slice();
+    let computerMove = true;
     /*Time machine feature is read-only, players can't make changes to past moves. */
     if(squares[i] || calculateWinner (squares) || this.state.stepNumber !== (history.length-1)) {
       return;
     }
+
     squares[i] = this.state.xIsNext ? 'X':'O';
     this.setState ({
       history:history.concat([{
@@ -66,6 +68,25 @@ class Game extends React.Component {
       xIsNext : !this.state.xIsNext,
       });
 
+    if (this.state.stepNumber === parseInt (squares.length/2,10) )
+    {
+      return;
+    }
+    while(computerMove){
+      let randomSelect = Math.floor(Math.random() * squares.length);
+      if(squares[randomSelect] === null){
+        squares[randomSelect] = 'O';
+        this.setState ({
+        history:history.concat([{
+          squares:squares,
+        }]),
+        stepNumber: history.length,
+        xIsNext : this.state.xIsNext,
+        });
+        computerMove = false;
+        return;        
+      }
+    }
   }
 
   jumpTo(step) {
