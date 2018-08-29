@@ -4,13 +4,25 @@ This repo contains source code for the tic-tac-toe game based on the ReactJS tut
 
 <strong style="font-size:20px">Change Log</strong><br />
 
+8/29/2018:
+<ul><li>Player can choose game mode upon starting the game</li>
+	<li>Current game mode is shown on page</li>
+</ul>
+<strong style="font-size:15px">Known Issue(s)</strong><br />
+<ul>
+	<li>Buttons are cramped together on the game board</li>
+	<li>Current mode text width is not fixed, which caused the game info div moving back and forth</li>
+</ul>
+
+
 8/28/2018:
 <ul><li>Implemented Palyer againest Computer mode</li>
 </ul>
 <strong style="font-size:15px">Known Issue(s)</strong><br />
 <ul>
 <li>Next player is always showing X</li>
-<li>Consider implementing a two player mode and let player choose to be 'O' or 'X'</li>
+<li><stroke>Consider implementing a two player mode </stroke>and let player choose to be 'O' or 'X'</li>
+<stroke><li>After going back to previous steps, there's a chance that 'xIsNext' value will be altered when resuming the game</li></stroke>
 </ul>
 <br />
 

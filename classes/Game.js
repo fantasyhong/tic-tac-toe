@@ -42,6 +42,7 @@ class Game extends React.Component {
     }],
     stepNumber: 0,
     xIsNext : true,
+    onePlayer : true,
   }
 
   constructor (props) {
@@ -51,6 +52,7 @@ class Game extends React.Component {
 
   handleClick (i) {
     const history = this.state.history;
+    const playerMode = this.state.onePlayer;
     const current = history[history.length - 1];
     const squares = current.squares.slice();
     let computerMove = true;
@@ -68,7 +70,7 @@ class Game extends React.Component {
       xIsNext : !this.state.xIsNext,
       });
 
-    if (this.state.stepNumber === parseInt (squares.length/2,10) )
+    if (this.state.stepNumber === parseInt (squares.length/2,10) ||!playerMode)
     {
       return;
     }
@@ -92,12 +94,20 @@ class Game extends React.Component {
   jumpTo(step) {
     this.setState({
       stepNumber: step,
-      xIsNext: (step % 2) ===0,
+      // xIsNext: (step % 2) ===0,
     });
   }
 
   resetGame () {
     this.setState({...this.defaultstate});
+  }
+
+  setPlayer (status){
+    if(this.state.stepNumber === 0 && this.state.stepNumber === (this.state.history.length-1)){
+      this.setState({
+        onePlayer: status,
+      });
+    }
   }
   render() {
     const history = this.state.history;
@@ -126,10 +136,17 @@ class Game extends React.Component {
     return (
       <div className = "game">
         <div className = "game-board">
+          <h3>Current Mode: {this.state.onePlayer ? "One Player": "Two Player"}</h3> 
+          <div className = "game-mode">
+            <button onClick = {() => this.setPlayer(true)}>1 Player</button>
+            <button onClick = {() => this.setPlayer(false)}>2 Player</button>
+          </div>
           <Board 
             squares = {current.squares}
             onClick = {i => this.handleClick(i)}/>
-          <button onClick = {() => this.resetGame()}>Reset Game</button>
+          <div className = "reset-game">  
+            <button onClick = {() => this.resetGame()}>Reset Game</button>
+          </div>
         </div>
         <div className = "game-info">
           <div>{status}</div>
