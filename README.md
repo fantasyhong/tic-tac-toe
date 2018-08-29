@@ -22,7 +22,7 @@ This repo contains source code for the tic-tac-toe game based on the ReactJS tut
 <ul>
 <li>Next player is always showing X</li>
 <li><strike>Consider implementing a two player mode </strike>and let player choose to be 'O' or 'X'</li>
-<strike><li>After going back to previous steps, there's a chance that 'xIsNext' value will be altered when resuming the game</li></stroke>
+<strike><li>After going back to previous steps, there's a chance that 'xIsNext' value will be altered when resuming the game</li></strike>
 </ul>
 <br />
 
