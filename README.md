@@ -13,7 +13,7 @@ This repo contains source code for the tic-tac-toe game based on the ReactJS tut
 	<li>Buttons are cramped together on the game board</li>
 	<li>Current mode text width is not fixed, which caused the game info div moving back and forth</li>
 </ul>
-
+<br />
 
 8/28/2018:
 <ul><li>Implemented Palyer againest Computer mode</li>
