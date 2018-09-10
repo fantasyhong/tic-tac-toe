@@ -1,6 +1,7 @@
 # Tic-Tac-Toe
 This repo contains source code for the tic-tac-toe game based on the ReactJS tutorial. (https://reactjs.org/tutorial/tutorial.html)
 
+![Demo](https://github.com/fantasyhong/tic-tac-toe/blob/master/gifs/tic-tac-toe.gif)
 
 <strong style="font-size:20px">Change Log</strong><br />
 
